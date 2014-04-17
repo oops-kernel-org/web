@@ -1,7 +1,28 @@
 #!/bin/env bash
 
-# bundles deployment
-echo "prep: creating the necessary structure..."
-pushd $OPENSHIFT_REPO_DIR
-	
-popd
+echo " * build: performing necessary steps before deployment..."
+pushd $OPENSHIFT_REPO_DIR > /dev/null
+	pushd bundles/ > /dev/null
+	echo " * build: check sha1sums of the bundles"
+	sha1sum --quiet -c sha1sum
+	popd > /dev/null
+
+	echo -n " * build: unpacking out of tree bundles: "
+	# unpacking wordpress
+	wordpress=`find bundles/ -type f -name 'wordpress-*.zip'`
+	unzip -q ${wordpress} -d ${TMP_DIR}
+	mv ${TMP_DIR}wordpress/* php/
+	rm -r ${TMP_DIR}wordpress
+	echo -n "`basename ${wordpress}`"
+
+	# unpacking wp-content stuff
+	cp -r bundles/wp-content/ php/
+	for f in `find php/ -type f -name "*.zip"`; do
+		echo -n " `basename ${f}`" 
+		unzip -q $f -d `dirname $f`
+		rm $f
+	done;
+	echo
+
+popd > /dev/null
+
