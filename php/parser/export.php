@@ -5,7 +5,7 @@ global $wpdb;
 $args = array('post_type' => 'oops',
               'order' => 'ASC',
               'orderby' => 'ID',
-              'posts_per_page' => 250);
+              'posts_per_page' => 1024);
 $slug = Array("bugline" => $oopscfg["wpcf"]["dbprefix"] . $oopscfg["wpcf"]["slug"]["bugline"],
               "type" => $oopscfg["wpcf"]["dbprefix"] . $oopscfg["wpcf"]["slug"]["type"],
               "class" => $oopscfg["wpcf"]["dbprefix"] . $oopscfg["wpcf"]["slug"]["class"],
@@ -82,6 +82,7 @@ while($args["paged"]) {
 		unset($out);
 		$out = "";
 	}
+	wp_cache_flush();
 }
 if ($out != "") fwrite($handle, $out);
 fwrite($handle, '</oopslist>');
