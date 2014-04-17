@@ -1,0 +1,262 @@
+/*
+Theme Name: oops.kernel.org, child of Responsive
+Description: Responsive Child Theme
+Author: Petr Oros, Anton Arapov
+Version: 0.1
+Template: responsive
+*/
+@import url("../responsive/style.css");
+
+/* parent theme overrides */
+tr, td { border: none !important; }
+h1 { font-size: 2em !important; }
+h2 { font-size: 1.700em !important; }
+h3 { font-size: 1.600em !important; }
+h4 { font-size: 1.500em !important; }
+h5 { font-size: 1.125em !important; }
+#content { margin-top: 20px !important; }
+#content-full { margin-top: 20px !important; }
+#content-blog { margin-top: 20px !important; }
+#content-archive { margin-top: 20px !important; }
+#featured { padding: 0px !important; }
+#featured-image { float: center !important; }
+.col-460 { width: 100% !important; margin: 0px !important; }
+
+.trace ul{
+	list-style: none;
+	padding: 0px 0px 0px 10px;
+}
+
+.item-block {
+	clear: both;
+	padding: 5px 0px 0px 0px;
+}
+
+.item-head {
+	float: left;
+	display: inline;
+	padding: 0px 0px 0px 10px;
+	font-size: 1.3em;
+	font-weight: bold;
+}
+
+.item-body {
+	float: left;
+	display: inline;
+	padding: 4px 0px 0px 10px;
+	font-size: 1em;
+	font-weight: normal;
+	line-height: 1.1em;
+}
+
+.long ul li {
+	float: none !important;
+	width: 100% !important;
+	padding: 4px 0px 0px 10px;
+}
+
+.item-body ul {
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	list-style: none;
+}
+
+.item-body a {
+	color: #0066cc;
+	font-weight: 400;
+	text-decoration: none;
+}
+
+.item-body.registers li{
+	padding-left: 10px;
+	display: block;
+	float: left;
+	width: 30%;
+}
+
+.item-body.disassm {
+	width: 95%;
+	font-family: monotype;
+	font-size: 14px;
+}
+
+#oops-list-head {
+	color: #fff;
+	font-size: 13px;
+	font-weight: 700;
+	background-color: #585858;
+	clear: both;
+}
+
+#oops-list-head a {
+	color: #fff;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.oops-list-data-even {
+	background-color: #dddddd;
+}
+
+.oops-list-data-odd {
+	background-color: #ffffff;
+}
+
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+.autocomplete-input { font-size: 14px; padding: 4px; border: 1px solid #CCC; display: block;  }
+
+.ac_input {
+	margin: 10px 0px 10px 0px;
+	height: 30px;
+}
+.ac_results {
+	padding: 0px;
+	border: 1px solid black;
+	background-color: white;
+	overflow: hidden;
+	z-index: 99999;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	font: menu;
+	font-size: 12px;
+	line-height: 16px;
+	overflow: hidden;
+}
+
+.ac_loading {
+	background: white url('indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #eee;
+}
+
+.ac_over {
+	background-color: #0A246A;
+	color: white;
+}
+
+#filterAreaControl {
+	padding-top: 15px;
+}
+
+#filterTable, #filterTable tr td {
+	border: none;
+}
+
+.gd {
+	width: 80%;
+}
+
+.gd2 {
+	width: 100%;
+}
+
+.gd, .gd th, .gd td {
+	border: none;
+	padding: 0px;
+	margin: 0px;
+	text-align: center;
+}
+
+.gd2, .gd2 th, .gd2 td {
+	border: none;
+	padding: 0 40px;
+	margin: 0px;
+	text-align: left;
+}
+
+.gd th, .gd2 th {
+	font-weight: bold;
+}
+
+.loading {
+	display: block;
+	width: 100px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.stat{
+	border: none;
+	display: block;
+	padding-left: 20px;
+	margin: 0px;
+	width: 100%;
+}
+
+.stat th {
+	background-color: #ccc;
+	padding: 0px 0px 0px 15px;
+	font-weight: bold;
+	text-align: left;
+	border: none;
+}
+
+.stat td {
+	padding: 0px 10px 0px 10px;
+	border: none;
+}
+
+.stat td.value {
+	text-align: right;
+}
+
+.stat tr {
+	padding: 0px;
+	border: none;
+}
+
+.stat tr td{
+	width: 310px;
+}
+
+table.stat {
+	padding: 0px;
+	width: 100%;
+}
+
+.t1{
+	margin: 0px;
+	clear: both;
+}
+
+.t1 th{
+	font-weight: bold;
+}
+
+.t1, .t2 {
+	border: 1px solid #ddd;
+	margin: 0px 0px 5px 0px;
+}
+
+#traces {
+	border: none;
+}
+
+.percentage-box {
+	width:140px;
+	display: block;
+	padding-top: 1px;
+}
+
+.percentage-value {
+	background-color:rgb(100,100,100);
+}
+
