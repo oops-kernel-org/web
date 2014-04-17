@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Login REQUIRED!"
+AuthUserFile OPENSHIFT_DATA_DIR.safeouthtpasswd
+Require valid-user
+DirectoryIndex export.zip
