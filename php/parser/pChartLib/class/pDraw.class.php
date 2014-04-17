@@ -1744,6 +1744,7 @@
      $Floating		= isset($Format["Floating"]) ? $Format["Floating"] : FALSE;
      $Mode		= isset($Format["Mode"]) ? $Format["Mode"] : SCALE_MODE_FLOATING;
      $RemoveXAxis	= isset($Format["RemoveXAxis"]) ? $Format["RemoveXAxis"] : FALSE;
+     $RemoveYAxis	= isset($Format["RemoveYAxis"]) ? $Format["RemoveYAxis"] : FALSE;
      $MinDivHeight	= isset($Format["MinDivHeight"]) ? $Format["MinDivHeight"] : 20;
      $Factors		= isset($Format["Factors"]) ? $Format["Factors"] : array(1,2,5);
      $ManualScale	= isset($Format["ManualScale"]) ? $Format["ManualScale"] : array("0"=>array("Min"=>-100,"Max"=>100));
@@ -2288,7 +2289,7 @@
 
 
 
-       if ( $Parameters["Identity"] == AXIS_Y )
+       if ( $Parameters["Identity"] == AXIS_Y && !$RemoveYAxis )
         {
          if ( $Pos == SCALE_POS_LEFTRIGHT )
           {
