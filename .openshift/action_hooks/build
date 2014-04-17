@@ -2,6 +2,10 @@
 
 echo " * build: performing necessary steps before deployment."
 pushd $OPENSHIFT_REPO_DIR > /dev/null
+
+	####
+	# Unpacking
+	####
 	pushd bundles/ > /dev/null
 	echo " * build: check sha1sums of the bundles."
 	sha1sum --quiet -c sha1sum
@@ -23,6 +27,13 @@ pushd $OPENSHIFT_REPO_DIR > /dev/null
 		rm $f
 	done;
 	echo "."
+
+	####
+	# .htaccess sed-rework of path to (optional).htaccess file
+	####
+	for f in `find php/ -type f -name ".htaccess"`; do
+		sed -i.bak -e "s%OPENSHIFT_DATA_DIR%${OPENSHIFT_DATA_DIR}%g" $f
+	done;
 
 popd > /dev/null
 

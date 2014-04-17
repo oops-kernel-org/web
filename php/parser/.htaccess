@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Login REQUIRED!"
+AuthUserFile OPENSHIFT_DATA_DIR.htpasswd
+Require valid-user
+DirectoryIndex run-parser.php
