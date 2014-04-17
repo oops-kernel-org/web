@@ -1,0 +1,15 @@
+#!/bin/bash
+LOG_FILE=${OPENSHIFT_PHP_LOG_DIR}/tags.log
+DATE=`date "+%m-%d-%Y %H:%M"`
+cd ${OPENSHIFT_DATA_DIR}
+echo "Start tags.sh: $DATE" >> ${LOG_FILE}
+./get-tags.sh
+DATE=`date "+%m-%d-%Y %H:%M"`
+echo "Done tags.sh $DATE" >> ${LOG_FILE}
+cd ${OPENSHIFT_REPO_DIR}/php/parser/
+echo "Start tag_import.php: $DATE" >> ${LOG_FILE}
+php -e tag_import.php >> ${LOG_FILE}
+DATE=`date "+%m-%d-%Y %H:%M"`
+echo "Done tag_import.php:$DATE" >> ${LOG_FILE}
+echo "" >> ${LOG_FILE}
+exit

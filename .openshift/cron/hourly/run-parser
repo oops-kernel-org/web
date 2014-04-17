@@ -1,0 +1,10 @@
+#!/bin/bash
+LOG_FILE=${OPENSHIFT_PHP_LOG_DIR}/parser.log
+DATE=`date "+%m-%d-%Y %H:%M"`
+cd ${OPENSHIFT_REPO_DIR}/php/parser/
+echo "Start: $DATE" >> ${LOG_FILE}
+php -e run-parser.php >> ${LOG_FILE}
+DATE=`date "+%m-%d-%Y %H:%M"`
+echo "Done $DATE" >> ${LOG_FILE}
+echo "" >> ${LOG_FILE}
+exit

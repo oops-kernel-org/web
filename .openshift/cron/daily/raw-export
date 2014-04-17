@@ -1,0 +1,8 @@
+#!/bin/bash
+cd ${OPENSHIFT_REPO_DIR}/php/parser/
+php -e raw-export.php > /dev/null
+cd ${OPENSHIFT_REPO_DIR}/php/safe-output/
+rm -f raw-export.zip
+zip -9 raw-export.zip raw-export.xml
+rm -f raw-export.xml
+exit
