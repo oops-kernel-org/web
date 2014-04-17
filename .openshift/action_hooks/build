@@ -1,0 +1,7 @@
+#!/bin/env bash
+
+# bundles deployment
+echo "prep: creating the necessary structure..."
+pushd $OPENSHIFT_REPO_DIR
+	
+popd
