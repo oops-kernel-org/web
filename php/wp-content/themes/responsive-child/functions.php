@@ -22,4 +22,3 @@ function add_js_to_page() {
 add_action('wp_enqueue_scripts', 'add_js_to_page');
 
 ?>
-
