@@ -20,7 +20,8 @@
 * notainted: bool, if set stats exclude all tainted kernels
 */
 
-require "wp-load.php";
+$oopscfg["cachedir"] = $oopscfg["webroot"] . "cache/";
+$oopscfg["cache"]["ttl"] = 60 * 60 * 12;
 
 // fix filename
 $fileName = urlencode(print_r($_GET, True));
@@ -50,6 +51,9 @@ if (file_exists($oopscfg["cachedir"] . $fileName) && time() - $oopscfg["cache"][
 	readfile($oopscfg["cachedir"] . $fileName);
 	exit();
 }
+
+
+require "wp-load.php";
 // remove old cache file
 if (file_exists($oopscfg["cachedir"] . $fileName))
 	unlink($oopscfg["cachedir"] . $fileName);

@@ -14,7 +14,8 @@
 *  notainted: bool, if set stats exclude all tainted kernels
 **********************************/
 
-require "wp-load.php";
+$oopscfg["cachedir"] = $oopscfg["webroot"] . "cache/";
+$oopscfg["cache"]["ttl"] = 60 * 60 * 12;
 
 $fileName = urlencode(print_r($_GET, True));
 $search = array('Array', '%3D', '%5B', '+');
@@ -39,6 +40,8 @@ if (file_exists($oopscfg["cachedir"] . $fileName) && time() - $oopscfg["cache"][
 	readfile($oopscfg["cachedir"] . $fileName);
 	exit();
 }
+
+require "wp-load.php";
 if (file_exists($oopscfg["cachedir"] . $fileName)) unlink($oopscfg["cachedir"] . $fileName);
 if ($type == "kernel" || $type == "oops") $item_name = "version";
 else $item_name = "name";
