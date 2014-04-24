@@ -14,6 +14,10 @@
  * @package WordPress
  */
 
+/** WP Super Cache Settings */
+define('WPCACHEHOME', getenv('OPENSHIFT_REPO_DIR') . '/php/wp-content/plugins/wp-super-cache/');
+define('WP_CACHE', true);
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', getenv('OPENSHIFT_APP_NAME'));
