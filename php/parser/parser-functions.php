@@ -1652,29 +1652,10 @@ function ExplodeRc($rc) {
  *         if(arg1 > arg2) 1
 */
 function kcmp($a, $b) {
-    $arr = ExplodeRc(explode(".", $a));
-    $brr = ExplodeRc(explode(".", $b));
-    $index = 0;
-    //len(a) == len(b), a&&b==numeric
-    while (isset($arr[$index]) && isset($brr[$index]) && is_numeric($arr[$index]) && is_numeric($brr[$index])) {
-        if ((int)$arr[$index] < (int)$brr[$index]) return -1;
-        if ((int)$arr[$index] > (int)$brr[$index]) return 1;
-        $index++;
-    }
-    //len(a) == len(b), a!=numeric, b==numeric
-    if (isset($arr[$index]) && isset($brr[$index]) && !is_numeric($arr[$index]) && is_numeric($brr[$index])) return -1;
-    if (isset($arr[$index]) && isset($brr[$index]) && is_numeric($arr[$index]) && !is_numeric($brr[$index])) return 1;
-    //len(a)>len(b) a!=numeric
-    if (isset($arr[$index]) && !isset($brr[$index]) && !is_numeric($arr[$index])) return -1;
-    //len(a)>len(b) a==numeric
-    if (isset($arr[$index]) && !isset($brr[$index]) && is_numeric($arr[$index])) return 1;
-    //len(a)<len(b) a!=numeric
-    if (isset($brr[$index]) && !isset($arr[$index]) && !is_numeric($brr[$index])) return 1;
-    //len(a)<len(b) a==numeric
-    if (isset($brr[$index]) && !isset($arr[$index]) && is_numeric($brr[$index])) return -1;
-    //len(a)==len(b) a&&b!=numeric
-    if ((int)preg_replace("/[^0-9]*([0-9]+)/i", "$1", $arr[$index]) < (int)preg_replace("/[^0-9]*([0-9]+)/i", "$1", $brr[$index])) return -1;
-    if ((int)preg_replace("/[^0-9]*([0-9]+)/i", "$1", $arr[$index]) > (int)preg_replace("/[^0-9]*([0-9]+)/i", "$1", $brr[$index])) return 1;
+    $aint = ksrt($a);
+    $bint = ksrt($b);
+    if($aint < $bint) return -1;
+    if($aint > $bint) return 1;
     return 0;
 }
 /* create sorted number from kernel version string
