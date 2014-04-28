@@ -1635,15 +1635,6 @@ function ObfuscateRaw($oops) {
     }
     return $obf_oops;
 }
-function ExplodeRc($rc) {
-    if (!is_numeric($rc[count($rc) - 1])) {
-        $cnt = count($rc) - 1;
-        $tmp = explode("-", $rc[$cnt]);
-        $rc[$cnt] = $tmp[0];
-        $rc[$cnt + 1] = $tmp[1];
-    }
-    return $rc;
-}
 /* natural compare kernel versions ( helper for user sorting )
  * arg1: kernel version string
  * arg2: kernel version string
