@@ -1686,6 +1686,8 @@ function ksrt($version) {
     $retstr = "";
     $version = str_replace("-", ".", $version);
     $kernel = explode(".", $version);
+    for($i=count($kernel);$i<6;$i++)
+        $kernel[$i] = 0;
     while ($ctrl < 6) {
         if (isset($kernel[$ctrl])) {
             if (strpos($kernel[$ctrl], "r") !== False) {
