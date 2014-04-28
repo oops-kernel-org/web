@@ -43,7 +43,7 @@ get_header(); ?>
 
 	foreach ($slug as $key) {
 		$sort[$key] = "?orderby=" . $key . "&order=";
-		if ($orderby == $key)
+		if (isset($orderby) && $orderby == $key)
 			$sort[$key] .= ($order == "ASC") ? "DESC" : "ASC";
 		else
 			$sort[$key] .= "DESC";
