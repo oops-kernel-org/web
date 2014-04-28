@@ -1,0 +1,4 @@
+#!/bin/bash  
+nohup ./run-tag-import < /dev/null &> /dev/null &
+nohup ./raw-export < /dev/null &> /dev/null &
+nohup ./export < /dev/null &> /dev/null &
