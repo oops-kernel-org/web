@@ -1,4 +1,7 @@
-#!/bin/bash  
-nohup ./run-tag-import < /dev/null &> /dev/null &
-nohup ./raw-export < /dev/null &> /dev/null &
-nohup ./export < /dev/null &> /dev/null &
+#!/bin/bash
+LOG_FILE=${OPENSHIFT_PHP_LOG_DIR}/cron_daily_all.log
+
+nohup ${OPENSHIFT_REPO_DIR}misc/run-tag-import < /dev/null >> $LOG_FILE &
+nohup ${OPENSHIFT_REPO_DIR}misc/raw-export < /dev/null >> $LOG_FILE &
+nohup ${OPENSHIFT_REPO_DIR}misc/export < /dev/null >> $LOG_FILE &
+
