@@ -205,6 +205,7 @@ function TranslateTainted($tstring) {
     if (strpos($tstring, "C") !== False) $out.= "<li>C - modules from drivers/staging are loaded</li>";
     if (strpos($tstring, "I") !== False) $out.= "<li>I - Working around severe firmware bug</li>";
     if (strpos($tstring, "O") !== False) $out.= "<li>O - Out-of-tree module has been loaded</li>";
+    if (strpos($tstring, "E") !== False) $out.= "<li>E - Unsigned module has been loaded</li>";
     if (strlen($out) > 0) return $out;
     else return "";
 }
