@@ -361,6 +361,12 @@ while ($oops = mysql_fetch_array($oops_query)) {
                 $output["oopstype"] = "kernel NULL pointer";
                 $output["class"] = "bug";
             }
+            // general handler for new unknown bugs
+            if ($output["bugline"] == "" && preg_match("/^BUG: /", $line)) {
+                $output["bugline"] = $line;
+                $output["oopstype"] = "unknown bug";
+                $output["class"] = "bug";
+            }
         }
     }
     if (!isset($output["bugline"])) {
