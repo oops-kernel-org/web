@@ -69,8 +69,8 @@ get_header(); ?>
 	$query .=  " OR meta_key='" . $oopscfg["wpcf"]["dbprefix"] . $oopscfg["wpcf"]["slug"]["type"] . "' ";
 	$query .=  " OR meta_key='" . $oopscfg["wpcf"]["dbprefix"] . $oopscfg["wpcf"]["slug"]["distro"] . "'";
 
-	$result = mysqli_query($wpdb->dbh, $query);
-	while ($row = mysqli_fetch_array($result))
+	$result = mysql_query($query);
+	while ($row = mysql_fetch_array($result))
 		$selects[$row['meta_key']][] = $row["meta_value"];
 
 	if (isset($selects[$oopscfg["wpcf"]["dbprefix"] . $oopscfg["wpcf"]["slug"]["distro"]]))
