@@ -134,8 +134,8 @@ while ($oops = mysql_fetch_array($oops_query)) {
             }
         }
         if (!isset($output["oopstype"]) || $output["oopstype"] == "unknown") {
-            if (preg_match("/^NETDEV WATCHDOG: .*/", $line)) {
-                $output["bugline"] = $line;
+            if (preg_match("/NETDEV WATCHDOG: (.*)/", $line, $match)) {
+                $output["bugline"] = "NETDEV WATCHDOG: " . $match[1];
                 $output["oopstype"] = "watchdog";
                 $output["class"] = "warn";
             }
@@ -152,7 +152,7 @@ while ($oops = mysql_fetch_array($oops_query)) {
                 $output["oopstype"] = "kernel page fault";
                 $output["class"] = "bug";
             }
-            if (preg_match("/kernel paging request at ([0-9a-fA-F]+)/", $line, $match)) {
+            if (preg_match("/request at ([0-9a-fA-F]+)/", $line, $match)) {
                 $output["bugline"] = "BUG: unable to handle kernel paging request at " . $match[1];
                 $output["oopstype"] = "kernel page fault";
                 $output["class"] = "bug";
