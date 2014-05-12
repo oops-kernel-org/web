@@ -158,7 +158,7 @@ get_header(); ?>
 	else
 		echo '<input type="text" name="bugline" class="ac_input"/>';
 
-	echo "Kernel Version:";
+	echo "<br/>Kernel Version:";
 	if (isset($_GET["oopskernel"]))
 		echo '<input type="text" name="oopskernel" value="' . $_GET["oopskernel"] . '" class="ac_input" id="oopskernel"/>';
 	else
