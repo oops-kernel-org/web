@@ -840,6 +840,8 @@ function CalcUniqHash($parsed) {
     $hash = hash_init("sha256");
     hash_update($hash, $parsed["version"]);
     hash_update($hash, $parsed["bugline"]);
+    if (isset($parsed["guilty"]["function"]))
+        hash_update($hash, $parsed["guilty"]["function"]);
     return hash_final($hash);
 }
 /* memmory usage helper */
