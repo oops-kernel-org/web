@@ -30,4 +30,4 @@ do
 	#done
 	#exit
 done
-git checkout origin/master
+git checkout origin/master --force
