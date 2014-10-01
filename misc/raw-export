@@ -1,8 +1,13 @@
 #!/bin/bash
 cd ${OPENSHIFT_REPO_DIR}/php/parser/
+MYSQL_CLIENT_FLAGS=MYSQL_CLIENT_COMPRESS
 php -e raw-export.php > /dev/null
 cd ${OPENSHIFT_REPO_DIR}/php/safe-output/
-rm -f raw-export.zip
-zip -9 raw-export.zip raw-export.xml
+rm -f raw-export.zip rm -f raw-export.xml
+for x in `ls -v *.part`; do
+    cat $x >> raw-export.xml
+done
+cat *.part.last >> raw-export.xml
+zip -1 raw-export.zip raw-export.xml
 rm -f raw-export.xml
 exit
