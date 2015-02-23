@@ -113,7 +113,7 @@ function CodeVersionData($raw) {
         $number = $matches[1] . "." . $matches[2];
     }
     $exploded = explode(".", $number);
-    if ($exploded[0] != 2 && $exploded[0] != 3) return False;
+    if ($exploded[0] != 2 && $exploded[0] != 3 && $exploded[0] != 4) return False;
     if (isset($exploded[2]) && $exploded[2] == "0") return $exploded[0] . "." . $exploded[1];
     if (isset($exploded[2]) && strpos($exploded[2], "rc") !== False) {
         return $exploded[0] . "." . $exploded[1] . str_replace("0-", "-", $exploded[2]);
