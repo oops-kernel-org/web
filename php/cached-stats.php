@@ -366,7 +366,7 @@ echo '<tr><td>&nbsp;</td><td>&nbsp;</td></tr>';
 $limit--;
 }
 echo '</table>';
-} else echo "Anny result for this time :(";
+} else echo "No data for the requested period.";
 $fp = fopen($oopscfg["cachedir"] . $fileName, 'w');
 $output = ob_get_contents();
 fwrite($fp, $output);
