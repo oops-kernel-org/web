@@ -20,14 +20,8 @@ do
 	# checkout last unparsed tag
 	git checkout $current
 	echo "Parsing: ${current:1}"
-	../ctags -R -x --c-kinds=f ./ | grep function | sed -e "s/^\([^ ]*\)[ ]*function[ ]*\([0-9]*\)[ ]*\([^ ]*\)[ ]*\(.*\)/\3:\2:\1/" | grep "^./" | sort -f | uniq > "../tags/${current:1}"
-	#for file in $( tree -inf | grep ".*\.c$" )
-	#do
-		#cat $file | sed -e "s/\/\/.*//g" -e ':1;N;s/\(([^)]*\)[\n]/\1/g;b1' -e 's/\\/*.*\*\//g' -e "s/^[ \t]*//;s/[ \t]*$//;s/[ \t]\{1,\}/ /g" \
-		#-e 's/[ ],/,/g' -e 's/,\([^ ]\)/, \1/g' -e 's/\([^ \/]\)\*/\1 \*/g' -e 's/\*[ ]/\*/g' > $file"-temp"
-	#	mv $file"-temp" $file
-	#	ctags -x --c-kinds=f $file | grep function | sed -e "s/\([^ ]*\).*\(\.\/.*\.c\).*\((.*)\)/\2:\1\3/g" >> "tags/kernel-$current"
-	#done
-	#exit
+	#ctags -R -x --c-kinds=f ./ | grep function | sed -e "s/^\([^ ]*\)[ ]*function[ ]*\([0-9]*\)[ ]*\([^ ]*\)[ ]*\(.*\)/\3:\2:\1/" | grep "^./" | sort -f | uniq > "../tags/${current:1}"
+	find . -type f -iname "*.[cChH]" | xargs ../ctags -x --c-kinds=f | grep -e"function" -e"inline" | awk '{print $4":"$3":"$1}' | sort -f | uniq > "../tags/${current:1}"
 done
 git checkout origin/master --force
+
